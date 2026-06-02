@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Arjun Sharma",
+    "age": 28,
+    "email": "arjun.sharma@gmail.com",
+    "AccountNo.": "aBcDeFgH1234",
+    "pin": 4521,
+    "balance": 45000
+  },
+  {
+    "name": "Priya Mehta",
+    "age": 34,
+    "email": "priya.mehta@yahoo.com",
+    "AccountNo.": "xYzWqRsT5678",
+    "pin": 7893,
+    "balance": 120500
+  },
+  {
+    "name": "Rohan Verma",
+    "age": 22,
+    "email": "rohan.verma@outlook.com",
+    "AccountNo.": "mNpQkLjH9012",
+    "pin": 1234,
+    "balance": 8750
+  },
+  {
+    "name": "Sneha Patel",
+    "age": 45,
+    "email": "sneha.patel@gmail.com",
+    "AccountNo.": "tUvBcDeF3456",
+    "pin": 6677,
+    "balance": 275000
+  },
+  {
+    "name": "Karan Joshi",
+    "age": 17,
+    "email": "karan.joshi@gmail.com",
+    "AccountNo.": "gHiJkLmN7890",
+    "pin": 9900,
+    "balance": 3200
+  }
+]
