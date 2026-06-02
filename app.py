@@ -4,7 +4,6 @@ import string
 import streamlit as st
 from pathlib import Path
 
-# ── Page config ──────────────────────────────────────────────────────────────
 st.set_page_config(
     page_title="VaultBank",
     page_icon="🏦",
@@ -12,7 +11,6 @@ st.set_page_config(
     initial_sidebar_state="collapsed",
 )
 
-# ── Custom CSS ────────────────────────────────────────────────────────────────
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap');
@@ -217,7 +215,6 @@ hr { border-color: #1a1f2e !important; }
 </style>
 """, unsafe_allow_html=True)
 
-# ── Bank logic ────────────────────────────────────────────────────────────────
 DATABASE = "database.json"
 
 def load_data():
@@ -241,7 +238,6 @@ def find_user(data, accno, pin):
     results = [u for u in data if u['AccountNo.'] == accno and u['pin'] == pin]
     return results[0] if results else None
 
-# ── UI ────────────────────────────────────────────────────────────────────────
 st.markdown("""
 <div class="hero">
     <p class="hero-sub">● Secure Digital Banking</p>
@@ -252,7 +248,6 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# Operation selector
 st.markdown('<p class="section-label">Select Operation</p>', unsafe_allow_html=True)
 operation = st.selectbox(
     "operation",
@@ -265,7 +260,6 @@ st.markdown("---")
 
 data = load_data()
 
-# ── CREATE ACCOUNT ────────────────────────────────────────────────────────────
 if operation == "Create Account":
     st.markdown('<p class="section-label">New Account</p>', unsafe_allow_html=True)
     col1, col2 = st.columns(2)
@@ -306,7 +300,6 @@ if operation == "Create Account":
             <div class="msg-info">🔐 Save your account number and PIN — you'll need them for all transactions.</div>
             """, unsafe_allow_html=True)
 
-# ── DEPOSIT ───────────────────────────────────────────────────────────────────
 elif operation == "Deposit Money":
     st.markdown('<p class="section-label">Deposit</p>', unsafe_allow_html=True)
     accno = st.text_input("Account Number")
@@ -328,7 +321,7 @@ elif operation == "Deposit Money":
             </div>
             """, unsafe_allow_html=True)
 
-# ── WITHDRAW ──────────────────────────────────────────────────────────────────
+
 elif operation == "Withdraw Money":
     st.markdown('<p class="section-label">Withdrawal</p>', unsafe_allow_html=True)
     accno = st.text_input("Account Number")
@@ -351,8 +344,7 @@ elif operation == "Withdraw Money":
                 <span class="balance-chip">₹ {user['balance']:,}</span>
             </div>
             """, unsafe_allow_html=True)
-
-# ── VIEW DETAILS ──────────────────────────────────────────────────────────────
+            
 elif operation == "View Account Details":
     st.markdown('<p class="section-label">Account Details</p>', unsafe_allow_html=True)
     accno = st.text_input("Account Number")
@@ -376,7 +368,6 @@ elif operation == "View Account Details":
             </div>
             """, unsafe_allow_html=True)
 
-# ── UPDATE DETAILS ────────────────────────────────────────────────────────────
 elif operation == "Update Details":
     st.markdown('<p class="section-label">Update Account</p>', unsafe_allow_html=True)
     accno = st.text_input("Account Number")
@@ -405,7 +396,7 @@ elif operation == "Update Details":
             if len(pin) == 4:
                 st.markdown('<div class="msg-error">⚠ Invalid account number or PIN.</div>', unsafe_allow_html=True)
 
-# ── DELETE ACCOUNT ────────────────────────────────────────────────────────────
+
 elif operation == "Delete Account":
     st.markdown('<p class="section-label">Delete Account</p>', unsafe_allow_html=True)
     st.markdown('<div class="msg-error">⚠ This action is permanent and cannot be undone.</div>', unsafe_allow_html=True)
@@ -424,7 +415,6 @@ elif operation == "Delete Account":
             save_data(data)
             st.markdown('<div class="msg-success">✓ Account deleted successfully.</div>', unsafe_allow_html=True)
 
-# Footer
 st.markdown("""
 <div style="text-align:center;margin-top:3rem;padding-top:1.5rem;border-top:1px solid #1a1f2e;">
     <p style="font-family:'DM Mono',monospace;font-size:0.7rem;color:#2d3748;letter-spacing:0.1em;">
