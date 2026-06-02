@@ -45,12 +45,12 @@ class Bank:
         userdata = [i for i in Bank.data if 
                     i['AccountNo.'] == accno and 
                     i['pin'] == pin]
-        if not userdata:  # FIX 2
+        if not userdata:  
             print("sorry no such user exist")
         else:
             amount = int(input("Money :- "))
             userdata[0]['balance'] += amount
-            Bank.__update()  # FIX 3
+            Bank.__update() 
             print("balance added successfully")
 
     def withdraw_money(self):
@@ -59,7 +59,7 @@ class Bank:
         userdata = [i for i in Bank.data if 
                     i['AccountNo.'] == accno and 
                     i['pin'] == pin]
-        if not userdata:  # FIX 2
+        if not userdata: 
             print("sorry no such user exist")
         else:
             amount = int(input("Money :- "))
@@ -67,7 +67,7 @@ class Bank:
                 print("insufficient balance")
             else:
                 userdata[0]['balance'] -= amount
-                Bank.__update()  # FIX 3
+                Bank.__update() 
                 print("withdrawn successfully")
 
     def show_details(self):
@@ -88,7 +88,7 @@ class Bank:
         userdata = [i for i in Bank.data if 
                     i['AccountNo.'] == accno and 
                     i['pin'] == pin]
-        if not userdata:  # FIX 2
+        if not userdata: 
             print("sorry no such account exist")
         else:
             print("you can't change bank balance, account number and age.")
@@ -117,7 +117,7 @@ class Bank:
         userdata = [i for i in Bank.data if 
                     i['AccountNo.'] == accno and 
                     i['pin'] == pin]
-        if not userdata:  # FIX 2
+        if not userdata: 
             print("sorry no such account exist")
         else:
             print("Are you sure you want to delete your account?")
@@ -125,13 +125,13 @@ class Bank:
             if check == "y":
                 index = Bank.data.index(userdata[0])
                 Bank.data.pop(index)
-                Bank.__update()  # FIX 4 - moved inside if block
+                Bank.__update()  
 
 
 bank = Bank()
 
 while True:
-    # FIX 1 - added indentation throughout
+    
     print("press 1 for creating an account")
     print("press 2 for depositing money")
     print("press 3 for withdrawing money")
